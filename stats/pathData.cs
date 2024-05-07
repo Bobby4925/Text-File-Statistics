@@ -19,26 +19,28 @@ public class pathData{
         }
      return(lineCount);
     }
-    public string getWord(){
+    public List<String> getWord(){
         int wordCount = 0; 
         string word = ""; 
         string line = "";
+        List<String> words = new List<string>();
         for(int i = 0; i<lines.Length; i++){
             line = lines[i]; 
-            while(!line[i].Equals(" ")){
-                word+=line[i];
-                return word; 
-             }
+            for(int j = 0; j<line.Length; j++){
+                while(!line[j].Equals(" ")){
+                    word+=line[j];
+                }
             }
-            return(word);
+            words.Add(word); 
+         }
+            return words;
     }
     public int getWordCount(){
         int wordCount = 0;
-        string word = getWord();
-        for(int i = 0; i<word.Length; i++){
-            wordCount++;
-        }
-       return wordCount;
+        List<String> word = getWord();
+       return word.Count;
     }
+
+    
  }
 
