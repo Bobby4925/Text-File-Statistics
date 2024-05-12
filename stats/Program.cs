@@ -8,8 +8,11 @@ int lineCount = 0;
 int wordCount = 0;
 int charCount = 0; 
 pathData p = new pathData(path); 
-lineCount = p.getLineCount(); 
+//Line Count
+lineCount = p.getLineCount();
+//Word Count
 wordCount = p.getWordCount();
+//Character Count
 charCount = p.getCharacterCount();
 Console.WriteLine(lineCount);
 Console.WriteLine(wordCount);
