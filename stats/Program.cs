@@ -3,8 +3,7 @@ using System.IO;
 
 Console.WriteLine("Welcome To this File Statistics Displayer!"); 
 Console.WriteLine("Please enter the directory of your file below");
-//string path = Console.ReadLine(); 
-string path = "/Users/ayushb/Desktop/Text File Stats/stats/test.txt";
+string path = Console.ReadLine(); 
 int lineCount = 0; 
 int wordCount = 0;
 int charCount = 0; 
