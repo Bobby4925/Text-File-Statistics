@@ -5,12 +5,11 @@ public class pathData{
     private string[] lines; 
     public pathData(string path){
         this.path = path; 
+        lines = File.ReadAllLines(path);
+        Console.WriteLine("Files Stored!"); 
     }
     public string getPath(){
         return path; 
-    }
-    private void setLines(){
-        lines = File.ReadAllLines(path);
     }
     public int getLineCount(){
         int lineCount = 0; 
@@ -19,28 +18,41 @@ public class pathData{
         }
      return(lineCount);
     }
-    public List<String> getWord(){
-        int wordCount = 0; 
-        string word = ""; 
+    public List<String> getWords(){
         string line = "";
         List<String> words = new List<string>();
         for(int i = 0; i<lines.Length; i++){
             line = lines[i]; 
-            for(int j = 0; j<line.Length; j++){
-                while(!line[j].Equals(" ")){
-                    word+=line[j];
+            if(!string.IsNullOrWhiteSpace(line)){
+                string[] word = line.Split(' '); 
+                foreach(string w in word){
+                    words.Add(w);
                 }
             }
-            words.Add(word); 
          }
             return words;
     }
     public int getWordCount(){
         int wordCount = 0;
-        List<String> word = getWord();
-       return word.Count;
+        List<String> word = getWords();
+        return word.Count;
     }
-
+    public int getCharacterCount(){
+        //Excludes White Space
+        int characterCount = 0;
+        List<String> words = getWords();
+        foreach(string s in words){
+            characterCount+=s.Length;
+        }
+        return characterCount; 
+    }
+    public int uniqueWordCount(){
+        //Figure Out How To Get Unique Words
+        List<String> words = getWords();
+        foreach(string s in words){
+        }
+        return 1; 
+    }
     
  }
 
