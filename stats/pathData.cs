@@ -1,5 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
-
 public class pathData{
     private string path; 
     private string[] lines; 
@@ -48,10 +46,16 @@ public class pathData{
     }
     public int uniqueWordCount(){
         //Figure Out How To Get Unique Words
-        List<String> words = getWords();
+        string[] words = getWords().ToArray(); 
+        string[] unique; 
+        int uniqueCount = 0; 
         foreach(string s in words){
+           unique = Array.FindAll(words, x=> x == s);
+           if(unique.Count() !> 1){
+                uniqueCount++; 
+           }
         }
-        return 1; 
+        return uniqueCount; 
     }
     
  }
